@@ -1,0 +1,48 @@
+@import url(../../vendor/fonts.css);
+
+.header {
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  padding: 0 40px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.header__logo-and-date {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  padding-right: 24px;
+}
+
+.header__date {
+}
+
+.header__button-and-avatar {
+  display: flex;
+  align-items: center;
+}
+
+.header__button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  margin-right: 20px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.header__name {
+  margin-right: 12px;
+}
+
+.header__avatar {
+}

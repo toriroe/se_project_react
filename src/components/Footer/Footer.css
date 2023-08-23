@@ -1,0 +1,11 @@
+@import url(../../vendor/fonts.css);
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 24px;
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}

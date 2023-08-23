@@ -1,0 +1,19 @@
+@import url(../../vendor/fonts.css);
+
+.weather {
+  position: relative;
+}
+
+.weather__info {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  color: white;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.weather__image {
+  width: 100%;
+}

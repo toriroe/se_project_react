@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import {
   getForcastWeather,
   parseWeatherData,
+  parseCurrentLocation,
   parseWeatherType,
 } from "../../utils/weatherApi";
 
@@ -16,6 +17,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
+  const [location, setLocation] = useState("");
   // const [weatherType, setWeatherType] = useState("");
 
   useEffect(() => {
@@ -23,6 +25,17 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         setTemp(temperature);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    getForcastWeather()
+      .then((data) => {
+        const currentLocation = parseCurrentLocation(data);
+        setLocation(currentLocation);
       })
       .catch((error) => {
         console.error(error);
@@ -58,7 +71,7 @@ function App() {
 
   return (
     <div>
-      <Header onCreateModal={handleCreateModal} />
+      <Header onCreateModal={handleCreateModal} location={location} />
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (

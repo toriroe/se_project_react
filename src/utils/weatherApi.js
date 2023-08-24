@@ -25,9 +25,3 @@ export const parseCurrentLocation = (data) => {
   const location = data.name;
   return location;
 };
-
-// export const parseWeatherType = (data) => {
-//   const weather = data.weather;
-//   const weatherCondition = weather[0].main.toLowerCase();
-//   return weatherCondition;
-// };

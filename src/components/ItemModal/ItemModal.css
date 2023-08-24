@@ -1,0 +1,44 @@
+@import url(../../vendor/fonts.css);
+
+.modal__content-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: white;
+  max-width: 498px;
+}
+
+.modal__button-close-image {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent url(../../images/close-button-white.svg) center
+    no-repeat;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__image {
+  border-radius: 16px 16px 0 0;
+}
+
+.modal__description {
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+  padding: 20px 0 32px 32px;
+  gap: 12px;
+}
+
+.modal__item-name {
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+.modal__item-weather {
+  margin: 0;
+}

@@ -10,7 +10,6 @@ import {
   getForcastWeather,
   parseWeatherData,
   parseCurrentLocation,
-  parseWeatherType,
 } from "../../utils/weatherApi";
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
-  // const [weatherType, setWeatherType] = useState("");
 
   useEffect(() => {
     getForcastWeather()
@@ -42,20 +40,6 @@ function App() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   getForcastWeather()
-  //     .then((data) => {
-  //       const weatherCondition = parseWeatherType(data);
-  //       console.log(weatherCondition);
-  //       setWeatherType(weatherCondition);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // });
-
-  // console.log(weatherType);
-
   const handleCreateModal = () => {
     setActiveModal("create");
   };
@@ -75,7 +59,7 @@ function App() {
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm title="This is the Title" onClose={handleCloseModal}>
+        <ModalWithForm title="New Garment" onClose={handleCloseModal}>
           <AddItemModal />
         </ModalWithForm>
       )}

@@ -1,3 +1,5 @@
+@import url(../../vendor/fonts.css);
+
 .modal {
   position: fixed;
   top: 0;
@@ -14,12 +16,53 @@
   background-color: white;
   max-width: 496px;
   width: 100%;
+  box-sizing: border-box;
   border-radius: 20px;
   padding: 20px 28px;
+  position: relative;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 .modal__button-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: transparent url(../../images/close-button-dark.svg) center
+    no-repeat;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.modal__title {
+  font-size: 16px;
+  margin: 0;
+  padding-bottom: 24px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__button-submit {
+  background: rgba(0, 0, 0, 1);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-top: 24px;
+}
+
+.modal__button-submit:hover {
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  opacity: 0.8;
 }

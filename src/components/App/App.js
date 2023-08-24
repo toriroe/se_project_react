@@ -56,7 +56,11 @@ function App() {
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm title="New Garment" onClose={handleCloseModal}>
+        <ModalWithForm
+          title="New Garment"
+          onClose={handleCloseModal}
+          buttonText="Add Garment"
+        >
           <AddItemModal />
         </ModalWithForm>
       )}

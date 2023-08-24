@@ -33,6 +33,7 @@ const AddItemModal = () => {
             type="radio"
             id="hot"
             value="hot"
+            name="weather"
           />
           <label> Hot </label>
         </div>
@@ -42,6 +43,7 @@ const AddItemModal = () => {
             type="radio"
             id="warm"
             value="warm"
+            name="weather"
           />
           <label> Warm </label>
         </div>
@@ -51,6 +53,7 @@ const AddItemModal = () => {
             type="radio"
             id="Cold"
             value="cold"
+            name="weather"
           />
           <label> Cold </label>
         </div>

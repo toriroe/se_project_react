@@ -18,6 +18,9 @@
   width: 20px;
   height: 20px;
   border: none;
+}
+
+.modal__button-close-image {
   cursor: pointer;
 }
 

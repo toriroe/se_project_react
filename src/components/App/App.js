@@ -27,15 +27,6 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         setTemp(temperature);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    getForcastWeather()
-      .then((data) => {
         const currentLocation = parseCurrentLocation(data);
         setLocation(currentLocation);
       })

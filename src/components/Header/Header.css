@@ -20,9 +20,6 @@
   padding-right: 24px;
 }
 
-.header__date {
-}
-
 .header__button-and-avatar {
   display: flex;
   align-items: center;
@@ -30,7 +27,6 @@
 
 .header__button {
   border: none;
-  cursor: pointer;
   background: transparent;
   padding: 0;
   margin-right: 20px;
@@ -39,9 +35,10 @@
   font-size: 20px;
 }
 
-.header__name {
-  margin-right: 12px;
+.header__button:hover {
+  cursor: pointer;
 }
 
-.header__avatar {
+.header__name {
+  margin-right: 12px;
 }

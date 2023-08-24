@@ -1,8 +1,5 @@
 @import url(../../vendor/fonts.css);
 
-.modal__form-content {
-}
-
 .modal__input-title {
   margin: 0;
   margin-bottom: 8px;
@@ -34,4 +31,9 @@
 .modal__radio-option {
   display: flex;
   gap: 8px;
+  margin-left: 0;
+}
+
+.modal__radio-button {
+  margin: 0;
 }

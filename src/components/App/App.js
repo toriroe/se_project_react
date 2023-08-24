@@ -13,10 +13,14 @@ import {
 } from "../../utils/weatherApi";
 
 function App() {
+  /* ------------------------------- Use States ------------------------------- */
+
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
+
+  /* ------------------------------- Use Effects ------------------------------ */
 
   useEffect(() => {
     getForcastWeather()
@@ -39,6 +43,8 @@ function App() {
         console.error(error);
       });
   }, []);
+
+  /* -------------------------------- Handlers -------------------------------- */
 
   const handleCreateModal = () => {
     setActiveModal("create");

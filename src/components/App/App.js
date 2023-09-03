@@ -25,6 +25,7 @@ function App() {
   const [location, setLocation] = useState("");
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  // const [weatherType, setWeatherType] = useState("");
 
   /* ------------------------------- Use Effects ------------------------------ */
 
@@ -33,6 +34,7 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         setTemp(temperature);
+        console.log(temperature);
         const currentLocation = parseCurrentLocation(data);
         setLocation(currentLocation);
       })

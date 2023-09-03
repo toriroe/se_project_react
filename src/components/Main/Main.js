@@ -7,6 +7,8 @@ import { useContext } from "react";
 const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
   const temp = weatherTemp?.temperature?.[currentTempUnit];
+  const type = weatherTemp?.type;
+  console.log(type);
   const getWeatherType = () => {
     if (currentTempUnit === "F") {
       if (temp >= 86) {
@@ -34,9 +36,25 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
     return item.weather === weatherType;
   });
 
+  /* --------------------- isDay variable for weather card -------------------- */
+
+  const currentTime = new Date().getHours();
+
+  const getIsDaytime = (time) => {
+    if (time > 6 && time < 19) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const isDay = getIsDaytime(currentTime);
+
+  /* -------------------------------------------------------------------------- */
+
   return (
     <main className="main">
-      <WeatherCard day={false} type="moon" weatherTemp={temp} />
+      <WeatherCard day={isDay} type="clear" weatherTemp={temp} />
       <section className="card__section" id="card-section">
         Today is {temp}° {currentTempUnit} / You may want to wear:
         <div className="card__items">

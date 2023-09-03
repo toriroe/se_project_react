@@ -19,11 +19,15 @@ export const getForcastWeather = () => {
 export const parseWeatherData = (data) => {
   const main = data.main;
   const temperature = main && main.temp;
+
+  const weatherType = data.weather[0].main;
+
   const weather = {
     temperature: {
       F: Math.ceil(temperature),
       C: Math.ceil(((temperature - 32) * 5) / 9),
     },
+    type: weatherType.toLowerCase(),
   };
   return weather;
 };

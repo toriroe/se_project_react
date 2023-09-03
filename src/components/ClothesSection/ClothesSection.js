@@ -2,7 +2,11 @@ import "./ClothesSection.css";
 import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 
-const ClothesSection = ({ handleCreateModal, handleSelectedCard }) => {
+const ClothesSection = ({
+  handleCreateModal,
+  handleSelectedCard,
+  clothingItems,
+}) => {
   return (
     <div className="clothes__section">
       <div className="clothes__section-wrapper">
@@ -12,7 +16,7 @@ const ClothesSection = ({ handleCreateModal, handleSelectedCard }) => {
         </button>
       </div>
       <div className="clothes__items">
-        {defaultClothingItems.map((item) => {
+        {clothingItems.map((item) => {
           return (
             <ItemCard
               card={item}

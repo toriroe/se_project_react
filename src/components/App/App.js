@@ -13,6 +13,7 @@ import {
 } from "../../utils/weatherApi";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import { Switch, Route } from "react-router-dom/";
+import { getItems } from "../../utils/Api";
 
 function App() {
   /* ------------------------------- Use States ------------------------------- */
@@ -22,6 +23,7 @@ function App() {
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState([]);
 
   /* ------------------------------- Use Effects ------------------------------ */
 
@@ -32,6 +34,16 @@ function App() {
         setTemp(temperature);
         const currentLocation = parseCurrentLocation(data);
         setLocation(currentLocation);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
       })
       .catch((error) => {
         console.error(error);
@@ -69,12 +81,17 @@ function App() {
         <Header onCreateModal={handleCreateModal} location={location} />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              clothingItems={clothingItems}
+            />
           </Route>
           <Route path="/profile">
             <Profile
               handleCreateModal={handleCreateModal}
               handleSelectedCard={handleSelectedCard}
+              clothingItems={clothingItems}
             />
           </Route>
         </Switch>

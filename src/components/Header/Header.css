@@ -29,10 +29,15 @@
   border: none;
   background: transparent;
   padding: 0;
-  margin-right: 20px;
+  margin: 0 20px;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   font-weight: 700;
   font-size: 20px;
+}
+
+.header__button:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .header__button:hover {
@@ -41,4 +46,10 @@
 
 .header__name {
   margin-right: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.header__name:hover {
+  cursor: pointer;
 }

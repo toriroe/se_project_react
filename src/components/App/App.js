@@ -1,8 +1,8 @@
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { useEffect, useState } from "react";
@@ -11,6 +11,8 @@ import {
   parseWeatherData,
   parseCurrentLocation,
 } from "../../utils/weatherApi";
+import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
+import { Switch, Route } from "react-router-dom/";
 
 function App() {
   /* ------------------------------- Use States ------------------------------- */
@@ -19,6 +21,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
+  const [currentTempUnit, setCurrentTempUnit] = useState("F");
 
   /* ------------------------------- Use Effects ------------------------------ */
 
@@ -50,19 +53,39 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleToggleSwitchChange = () => {
+    currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
+  };
+
+  const handleAddItem = (values) => {
+    console.log(values);
+  };
+
   return (
     <div>
-      <Header onCreateModal={handleCreateModal} location={location} />
-      <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+      <CurrentTempUnitContext.Provider
+        value={{ currentTempUnit, handleToggleSwitchChange }}
+      >
+        <Header onCreateModal={handleCreateModal} location={location} />
+        <Switch>
+          <Route exact path="/">
+            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
+          </Route>
+          <Route path="/profile">
+            <Profile
+              handleCreateModal={handleCreateModal}
+              handleSelectedCard={handleSelectedCard}
+            />
+          </Route>
+        </Switch>
+      </CurrentTempUnitContext.Provider>
       <Footer />
+
       {activeModal === "create" && (
-        <ModalWithForm
-          title="New Garment"
+        <AddItemModal
+          handleAddItem={handleAddItem}
           onClose={handleCloseModal}
-          buttonText="Add Garment"
-        >
-          <AddItemModal />
-        </ModalWithForm>
+        />
       )}
       {activeModal === "preview" && (
         <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />

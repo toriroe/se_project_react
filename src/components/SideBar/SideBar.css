@@ -1,0 +1,12 @@
+.sidebar {
+  display: flex;
+  padding-right: 116px;
+  gap: 20px;
+}
+
+.sidebar__avatar {
+}
+
+.sidebar__name {
+  margin-top: 7px;
+}

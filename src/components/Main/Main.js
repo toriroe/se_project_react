@@ -7,8 +7,6 @@ import { useContext } from "react";
 const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
   const temp = weatherTemp?.temperature?.[currentTempUnit];
-  const type = weatherTemp?.type;
-  console.log(type);
   const getWeatherType = () => {
     if (currentTempUnit === "F") {
       if (temp >= 86) {

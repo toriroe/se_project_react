@@ -34,7 +34,6 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         setTemp(temperature);
-        console.log(temperature);
         const currentLocation = parseCurrentLocation(data);
         setLocation(currentLocation);
       })

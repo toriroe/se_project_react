@@ -52,7 +52,6 @@ const AddItemModal = ({ handleAddItem, onClose }) => {
             type="url"
             name="imageUrl"
             minLength="1"
-            maxLength="30"
             placeholder="Image URL"
             value={imageUrl}
             onChange={handleUrlChange}

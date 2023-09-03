@@ -67,12 +67,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Scarf.png?etag=74efbee93810c926b5507e862c6cb76c"
     },
     {
-      "id": 11,
-      "name": "Shorts",
-      "weather": "Hot",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba"
-    },
-    {
       "id": 13,
       "name": "Sneakers",
       "weather": "warm",
@@ -91,10 +85,16 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "Converse",
-      "imageUrl": "https://images.unsplash.com/ph",
-      "weather": "warm",
+      "name": "Sweater",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1690341214258-18cb88438805?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDc2fFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+      "weather": "cold",
       "id": 17
+    },
+    {
+      "name": "Converse",
+      "imageUrl": "https://images.unsplash.com/photo-1608053874591-b12860f15ca6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIyfFM0TUtMQXNCQjc0fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+      "weather": "warm",
+      "id": 18
     }
   ]
 }

@@ -5,13 +5,11 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const AddItemModal = ({ handleAddItem, onClose }) => {
   const [name, setName] = useState("");
   const handleNameChange = (evt) => {
-    console.log(evt.target.value);
     setName(evt.target.value);
   };
 
   const [imageUrl, setUrl] = useState("");
   const handleUrlChange = (evt) => {
-    console.log(evt.target.value);
     setUrl(evt.target.value);
   };
 

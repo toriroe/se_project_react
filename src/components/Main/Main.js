@@ -1,6 +1,5 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { defaultClothingItems } from "../../utils/constants";
 import "./Main.css";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import { useContext } from "react";
@@ -32,7 +31,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
   const weatherType = getWeatherType();
 
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
+    return item.weather === weatherType;
   });
 
   return (
@@ -43,11 +42,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
         <div className="card__items">
           {filteredCards.map((item) => {
             return (
-              <ItemCard
-                card={item}
-                onSelectCard={onSelectCard}
-                key={item._id}
-              />
+              <ItemCard card={item} onSelectCard={onSelectCard} key={item.id} />
             );
           })}
         </div>

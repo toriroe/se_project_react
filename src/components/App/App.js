@@ -5,6 +5,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import { useEffect, useState } from "react";
 import {
   getForcastWeather,
@@ -13,7 +14,7 @@ import {
 } from "../../utils/weatherApi";
 import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
 import { Switch, Route } from "react-router-dom/";
-import { getItems } from "../../utils/Api";
+import { getItems, addItem, deleteItem } from "../../utils/Api";
 
 function App() {
   /* ------------------------------- Use States ------------------------------- */
@@ -35,8 +36,8 @@ function App() {
         const currentLocation = parseCurrentLocation(data);
         setLocation(currentLocation);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
       });
   }, []);
 
@@ -45,8 +46,8 @@ function App() {
       .then((data) => {
         setClothingItems(data);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
       });
   }, []);
 
@@ -65,12 +66,38 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleConfirmModal = () => {
+    setActiveModal("confirm");
+  };
+
   const handleToggleSwitchChange = () => {
     currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
   };
 
   const handleAddItem = (values) => {
-    console.log(values);
+    addItem(values)
+      .then((data) => {
+        console.log(data);
+        setClothingItems([data, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const handleDeleteItem = (selectedCard) => {
+    deleteItem(selectedCard)
+      .then(() => {
+        const newClothesList = clothingItems.filter((item) => {
+          return item.id !== selectedCard.id;
+        });
+        setClothingItems(newClothesList);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -105,7 +132,18 @@ function App() {
         />
       )}
       {activeModal === "preview" && (
-        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+        <ItemModal
+          selectedCard={selectedCard}
+          onClose={handleCloseModal}
+          handleDeleteClick={handleConfirmModal}
+        />
+      )}
+      {activeModal === "confirm" && (
+        <ConfirmModal
+          selectedCard={selectedCard}
+          onClose={handleCloseModal}
+          handleDeleteItem={handleDeleteItem}
+        />
       )}
     </div>
   );

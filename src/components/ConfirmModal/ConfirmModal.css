@@ -1,0 +1,71 @@
+@import url(../../vendor/fonts.css);
+
+.modal__content-confirm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: white;
+  min-width: 670px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.modal__button-close-confirm {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent url(../../images/close-button-dark.svg) center
+    no-repeat;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.modal__button-close-confirm:hover {
+  cursor: pointer;
+}
+
+.modal__confirm-text-container {
+  margin: 60px auto 40px;
+  text-align: center;
+}
+
+.modal__confirm-text {
+  margin: 0;
+}
+
+.modal__button-delete-confirm {
+  color: rgba(255, 77, 0, 1);
+  border: none;
+  background: transparent;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 0 0 12px;
+  max-width: 138px;
+  margin: 0 auto 24px;
+  padding: 0;
+}
+
+.modal__button-delete-confirm:hover {
+  cursor: pointer;
+}
+
+.modal__button-delete-cancel {
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  background: transparent;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 0 0 12px;
+  max-width: 62px;
+  margin: 0 auto 60px;
+  padding: 0;
+}
+
+.modal__button-delete-cancel:hover {
+  cursor: pointer;
+}

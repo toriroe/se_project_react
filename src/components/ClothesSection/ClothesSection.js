@@ -1,5 +1,4 @@
 import "./ClothesSection.css";
-import { defaultClothingItems } from "../../utils/constants";
 import ItemCard from "../ItemCard/ItemCard";
 
 const ClothesSection = ({
@@ -21,7 +20,7 @@ const ClothesSection = ({
             <ItemCard
               card={item}
               onSelectCard={handleSelectedCard}
-              key={item._id}
+              key={item.id}
             />
           );
         })}

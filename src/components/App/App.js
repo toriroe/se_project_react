@@ -12,7 +12,7 @@ import {
   parseWeatherData,
   parseCurrentLocation,
 } from "../../utils/weatherApi";
-import CurrentTempUnitContext from "../../contexts/CurrentTempUnitContext";
+import CurrentTempUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom/";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
 

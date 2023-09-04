@@ -5,10 +5,10 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import { useContext } from "react";
 
 const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
-  const { currentTempUnit } = useContext(CurrentTemperatureUnitContext);
-  const temp = weatherTemp?.temperature?.[currentTempUnit];
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const temp = weatherTemp?.temperature?.[currentTemperatureUnit];
   const getWeatherType = () => {
-    if (currentTempUnit === "F") {
+    if (currentTemperatureUnit === "F") {
       if (temp >= 86) {
         return "hot";
       } else if (temp >= 66 && temp <= 85) {
@@ -18,7 +18,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
       }
     }
 
-    if (currentTempUnit === "C") {
+    if (currentTemperatureUnit === "C") {
       if (temp >= 30) {
         return "hot";
       } else if (temp >= 19 && temp <= 29) {
@@ -54,7 +54,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
     <main className="main">
       <WeatherCard day={isDay} type="clear" weatherTemp={temp} />
       <section className="card__section" id="card-section">
-        Today is {temp}° {currentTempUnit} / You may want to wear:
+        Today is {temp}° {currentTemperatureUnit} / You may want to wear:
         <div className="card__items">
           {filteredCards.map((item) => {
             return (

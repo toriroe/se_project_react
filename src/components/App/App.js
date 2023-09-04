@@ -12,7 +12,7 @@ import {
   parseWeatherData,
   parseCurrentLocation,
 } from "../../utils/weatherApi";
-import CurrentTempUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom/";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
 
@@ -25,7 +25,6 @@ function App() {
   const [location, setLocation] = useState("");
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
-  // const [weatherType, setWeatherType] = useState("");
 
   /* ------------------------------- Use Effects ------------------------------ */
 
@@ -103,7 +102,7 @@ function App() {
 
   return (
     <div>
-      <CurrentTempUnitContext.Provider
+      <CurrentTemperatureUnitContext.Provider
         value={{ currentTempUnit, handleToggleSwitchChange }}
       >
         <Header onCreateModal={handleCreateModal} location={location} />
@@ -123,7 +122,7 @@ function App() {
             />
           </Route>
         </Switch>
-      </CurrentTempUnitContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
       <Footer />
 
       {activeModal === "create" && (

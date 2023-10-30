@@ -1,0 +1,39 @@
+@import url(../../vendor/fonts.css);
+
+.modal__input-title {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.modal__form-input {
+  margin-bottom: 24px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  width: 440px;
+  border-bottom: solid 1px rgba(0, 0, 0, 1);
+  padding: 0;
+}
+
+.modal__radio-title {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.modal__radio-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.modal__radio-option {
+  display: flex;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.modal__radio-button {
+  margin: 0;
+}

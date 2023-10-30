@@ -1,4 +1,4 @@
-const baseUrl = "https://my-json-server.typicode.com/toriroe/se_project_react";
+const baseUrl = "http://localhost:3001";
 
 // const baseUrl = "http://localhost:3001";
 
@@ -24,11 +24,12 @@ export const getItems = () => {
 
 /* --------------------------- POST items request --------------------------- */
 
-export const addItem = ({ name, imageUrl, weather }) => {
+export const addItem = ({ name, imageUrl, weather, token }) => {
   const addItem = fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
@@ -37,11 +38,12 @@ export const addItem = ({ name, imageUrl, weather }) => {
 
 /* --------------------------- DELETE item request -------------------------- */
 
-export const deleteItem = (selectedCard) => {
+export const deleteItem = (selectedCard, token) => {
   const deleteItem = fetch(`${baseUrl}/items/${selectedCard.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
   return deleteItem;

@@ -4,7 +4,7 @@ import avatar from "../../images/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 
-const Header = ({ onCreateModal, location }) => {
+const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -22,21 +22,35 @@ const Header = ({ onCreateModal, location }) => {
       </div>
       <div className="header__button-and-avatar">
         <ToggleSwitch />
-        <div>
-          <button
-            className="header__button"
-            type="text"
-            onClick={onCreateModal}
-          >
-            + Add clothes
-          </button>
-        </div>
-        <Link className="header__name" to="/profile">
-          Name
-        </Link>
-        <div>
-          <img className="header__avatar" src={avatar} alt="avatar" />
-        </div>
+        {loggedIn ? (
+          <div className="header__button-and-avatar">
+            <div>
+              <button
+                className="header__button"
+                type="text"
+                onClick={onCreateModal}
+              >
+                + Add clothes
+              </button>
+            </div>
+
+            <Link className="header__name" to="/profile">
+              Name
+            </Link>
+            <div>
+              <img className="header__avatar" src={avatar} alt="avatar" />
+            </div>
+          </div>
+        ) : (
+          <div className="header__registration">
+            <button className="header__button-register" onClick={onSignUp}>
+              Sign Up
+            </button>
+            <button className="header__button-login" onClick={onLogIn}>
+              Log In
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

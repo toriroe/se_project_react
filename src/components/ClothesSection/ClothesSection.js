@@ -20,7 +20,7 @@ const ClothesSection = ({
             <ItemCard
               card={item}
               onSelectCard={handleSelectedCard}
-              key={item.id}
+              key={item._id}
             />
           );
         })}

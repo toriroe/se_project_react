@@ -1,12 +1,44 @@
+@import url(../../vendor/fonts.css);
+
 .sidebar {
+  margin-right: 100px;
+  max-width: 300px;
+}
+
+.sidebar__user {
   display: flex;
-  padding-right: 116px;
-  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 24px;
+  white-space: nowrap;
 }
 
 .sidebar__avatar {
 }
 
 .sidebar__name {
-  margin-top: 7px;
+  margin: 0;
+  margin-left: 16px;
+}
+
+.sidebar__buttons {
+  gap: 8px;
+}
+
+.sidebar__button {
+  margin: 0;
+  border: none;
+  background: none;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 0;
+  margin-bottom: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sidebar__button:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
 }

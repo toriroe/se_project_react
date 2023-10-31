@@ -2,14 +2,26 @@
   position: relative;
 }
 
-.card__name {
-  position: absolute;
+.card__title {
+  position: relative;
   left: 140px;
   top: 18px;
+  display: flex;
+  top: -320px;
+  left: 116px;
+}
+
+.card__name {
   border-radius: 4px;
   background-color: white;
   color: rgba(0, 0, 0, 0.6);
   padding: 2px 12px;
+  position: relative;
+}
+
+.card__like-button {
+  padding-left: 10px;
+  position: relative;
 }
 
 .card__image {

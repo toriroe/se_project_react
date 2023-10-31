@@ -17,7 +17,7 @@ import {
 } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import { Switch, Route, Redirect } from "react-router-dom/";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom/";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
 import { signIn, register, getContent } from "../../utils/auth";
 
@@ -32,6 +32,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const history = useHistory();
 
   /* ------------------------------- Use Effects ------------------------------ */
 
@@ -101,6 +102,10 @@ function App() {
     setActiveModal("confirm");
   };
 
+  const handleEditProfileModal = () => {};
+
+  const handleEditProfile = () => {};
+
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
       ? setCurrentTemperatureUnit("C")
@@ -161,6 +166,13 @@ function App() {
       });
   };
 
+  const handleLogOut = () => {
+    setCurrentUser({});
+    localStorage.removeItem("jwt");
+    setLoggedIn(false);
+    history.push("/");
+  };
+
   return (
     <div>
       <CurrentUserContext.Provider value={currentUser}>
@@ -187,6 +199,7 @@ function App() {
                 handleCreateModal={handleCreateModal}
                 handleSelectedCard={handleSelectedCard}
                 clothingItems={clothingItems}
+                onLogOut={handleLogOut}
               />
             </ProtectedRoute>
           </Switch>

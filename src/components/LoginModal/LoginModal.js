@@ -15,7 +15,7 @@ const LoginModal = ({ onClose, handleLogIn }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // handleLogIn{ email, password });
+    handleLogIn({ email, password });
   };
 
   return (

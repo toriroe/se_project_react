@@ -65,7 +65,7 @@ function App() {
       getContent(jwt)
         .then((res) => {
           if (res) {
-            setCurrentUser(true);
+            setCurrentUser(res);
             setLoggedIn(true);
           }
         })
@@ -144,8 +144,6 @@ function App() {
         console.log(user);
         setLoggedIn(true);
         setCurrentUser(user);
-        console.log(loggedIn);
-        console.log(currentUser);
         localStorage.setItem("jwt", user.token);
         handleCloseModal();
       })
@@ -159,6 +157,7 @@ function App() {
       .then((user) => {
         localStorage.setItem("jwt", user.token);
         setLoggedIn(true);
+        console.log(user);
         handleCloseModal();
       })
       .catch((err) => {

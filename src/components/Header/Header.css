@@ -50,6 +50,27 @@
   cursor: pointer;
 }
 
+.header__avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid black;
+  object-fit: cover;
+  margin-top: 4px;
+}
+
+.header__avatar-letter {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  padding-top: 8px;
+  box-sizing: border-box;
+}
+
 .header__button-register {
   border: none;
   background: transparent;

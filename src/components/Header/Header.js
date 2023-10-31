@@ -13,7 +13,6 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
   });
 
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
 
   return (
     <header className="header">

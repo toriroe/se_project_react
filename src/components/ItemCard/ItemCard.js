@@ -17,7 +17,7 @@ const ItemCard = ({ card, onSelectCard, onCardLike, isLoggedIn }) => {
   };
 
   const handleCardLike = () => {
-    onCardLike(card._id, isLiked, currentUser._id);
+    onCardLike(card._id, isLiked, currentUser);
   };
 
   return (

@@ -82,7 +82,7 @@ function App() {
     }
   }, []);
 
-  /* -------------------------------- Handlers -------------------------------- */
+  /* -------------------------------- Modal Handlers -------------------------------- */
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -94,10 +94,6 @@ function App() {
 
   const handleRegisterModal = () => {
     setActiveModal("register");
-  };
-
-  const handleCloseModal = () => {
-    setActiveModal("");
   };
 
   const handleSelectedCard = (card) => {
@@ -112,6 +108,12 @@ function App() {
   const handleEditProfileModal = () => {
     setActiveModal("editprofile");
   };
+
+  const handleCloseModal = () => {
+    setActiveModal("");
+  };
+
+  /* ----------------------------- Other handlers ----------------------------- */
 
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
@@ -251,7 +253,6 @@ function App() {
             </ProtectedRoute>
           </Switch>
           <Footer />
-
           {activeModal === "create" && (
             <AddItemModal
               handleAddItem={handleAddItem}

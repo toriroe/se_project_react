@@ -13,6 +13,9 @@ const Main = ({
 }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit];
+
+  /* -------------------- Code for determining weather type & filtering cards by type ------------------- */
+
   const getWeatherType = () => {
     if (currentTemperatureUnit === "F") {
       if (temp >= 86) {

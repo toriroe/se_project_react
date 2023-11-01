@@ -9,7 +9,7 @@ const ItemCard = ({ card, onSelectCard, onCardLike, isLoggedIn }) => {
   const isLiked = card.likes.some((id) => id === currentUser._id);
   const cardLikeButtonSrc = `${isLiked ? likedButton : likeButtonImage}`;
   const cardLikeButtonClass = `card__like-button ${
-    isLoggedIn ? "card__like-button_visible" : "card__like-button_hidden"
+    !isLoggedIn && "card__like-button_hidden"
   }`;
 
   const handleCardClick = () => {

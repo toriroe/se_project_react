@@ -44,9 +44,6 @@
   margin-right: 12px;
   text-decoration: none;
   color: black;
-}
-
-.header__name:hover {
   cursor: pointer;
 }
 

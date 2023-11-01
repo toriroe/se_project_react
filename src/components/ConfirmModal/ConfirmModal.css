@@ -21,9 +21,6 @@
   width: 20px;
   height: 20px;
   border: none;
-}
-
-.modal__button-close-confirm:hover {
   cursor: pointer;
 }
 
@@ -47,9 +44,6 @@
   max-width: 138px;
   margin: 0 auto 24px;
   padding: 0;
-}
-
-.modal__button-delete-confirm:hover {
   cursor: pointer;
 }
 
@@ -64,8 +58,5 @@
   max-width: 62px;
   margin: 0 auto 60px;
   padding: 0;
-}
-
-.modal__button-delete-cancel:hover {
   cursor: pointer;
 }

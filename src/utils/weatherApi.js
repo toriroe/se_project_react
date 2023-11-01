@@ -1,5 +1,3 @@
-// https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
-
 import { latitude, longitude, APIkey } from "./constants.js";
 
 const processServerResponse = (res) => {
@@ -36,6 +34,3 @@ export const parseCurrentLocation = (data) => {
   const location = data.name;
   return location;
 };
-
-// weather.temperature.F = `${Math.round(data.main.temp)}°F`;
-// weather.temperature.C = `${Math.round(((data.main.temp - 32) * 5) / 9)}°C`;

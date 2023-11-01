@@ -35,9 +35,6 @@
   border: none;
   width: 20px;
   height: 20px;
-}
-
-.modal__button-close:hover {
   cursor: pointer;
 }
 

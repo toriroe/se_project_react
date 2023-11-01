@@ -2,6 +2,7 @@ import "./ConfirmModal.css";
 
 const ConfirmModal = ({ selectedCard, onClose, handleDeleteItem }) => {
   const token = localStorage.getItem("jwt");
+
   return (
     <div className="modal">
       <div className="modal__content-confirm">

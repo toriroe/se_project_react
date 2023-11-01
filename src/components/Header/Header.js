@@ -10,9 +10,7 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
     month: "long",
     day: "numeric",
   });
-
   const currentUser = useContext(CurrentUserContext);
-
   const avatarExists = currentUser.avatar !== "" ? true : false;
 
   return (

@@ -1,5 +1,3 @@
-import ItemCard from "../components/ItemCard/ItemCard";
-
 const baseUrl = "http://localhost:3001";
 
 export const checkResponse = (res) => {
@@ -22,7 +20,7 @@ export const getItems = () => {
   return getItems;
 };
 
-/* --------------------------- POST items request --------------------------- */
+/* --------------------------- POST new item request --------------------------- */
 
 export const addItem = ({ name, imageUrl, weather, token }) => {
   const addItem = fetch(`${baseUrl}/items`, {
@@ -49,7 +47,7 @@ export const deleteItem = (selectedCard, token) => {
   return deleteItem;
 };
 
-/* -------------------------------- LIKE item ------------------------------- */
+/* -------------------------------- PUT item like request ------------------------------- */
 
 export const addCardLike = (id, user, token) => {
   const addCardLike = fetch(`${baseUrl}/items/${id}/likes`, {
@@ -63,7 +61,7 @@ export const addCardLike = (id, user, token) => {
   return addCardLike;
 };
 
-/* ------------------------------- UNLIKE item ------------------------------ */
+/* ------------------------------- DELETE item like request ------------------------------ */
 
 export const removeCardLike = (id, user, token) => {
   const removeCardLike = fetch(`${baseUrl}/items/${id}/likes`, {

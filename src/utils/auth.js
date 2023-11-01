@@ -34,7 +34,7 @@ export const register = ({ name, avatar, email, password }) => {
   return register;
 };
 
-/* ------------------------------- Check Token ------------------------------ */
+/* ------------------------------- Check Token request ------------------------------ */
 
 export const getContent = (token) => {
   const getContent = fetch(`${baseUrl}/users/me`, {
@@ -47,7 +47,7 @@ export const getContent = (token) => {
   return getContent;
 };
 
-/* ------------------------------ Edit Profile ------------------------------ */
+/* ------------------------------ Edit Profile request ------------------------------ */
 
 export const editProfile = ({ name, avatar, _id, token }) => {
   const editProfile = fetch(`${baseUrl}/users/me`, {

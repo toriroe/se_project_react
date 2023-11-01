@@ -22,6 +22,14 @@
 .card__like-button {
   padding-left: 10px;
   position: relative;
+  cursor: pointer;
+}
+
+.card__like-button_visible {
+}
+
+.card__like-button_hidden {
+  display: none;
 }
 
 .card__image {

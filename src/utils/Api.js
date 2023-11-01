@@ -1,6 +1,6 @@
-const baseUrl = "http://localhost:3001";
+import ItemCard from "../components/ItemCard/ItemCard";
 
-// const baseUrl = "http://localhost:3001";
+const baseUrl = "http://localhost:3001";
 
 export const checkResponse = (res) => {
   if (res.ok) {
@@ -47,4 +47,32 @@ export const deleteItem = (selectedCard, token) => {
     },
   }).then(checkResponse);
   return deleteItem;
+};
+
+/* -------------------------------- LIKE item ------------------------------- */
+
+export const addCardLike = (id, user, token) => {
+  const addCardLike = fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ user }),
+  }).then(checkResponse);
+  return addCardLike;
+};
+
+/* ------------------------------- UNLIKE item ------------------------------ */
+
+export const removeCardLike = (id, user, token) => {
+  const removeCardLike = fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ user }),
+  }).then(checkResponse);
+  return removeCardLike;
 };

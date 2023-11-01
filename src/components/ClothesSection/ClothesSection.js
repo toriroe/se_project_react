@@ -7,6 +7,8 @@ const ClothesSection = ({
   handleCreateModal,
   handleSelectedCard,
   clothingItems,
+  onCardLike,
+  isLoggedIn,
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const filteredItems = clothingItems.filter((item) => {
@@ -28,6 +30,8 @@ const ClothesSection = ({
               card={item}
               onSelectCard={handleSelectedCard}
               key={item._id}
+              onCardLike={onCardLike}
+              isLoggedIn={isLoggedIn}
             />
           );
         })}

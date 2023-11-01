@@ -19,7 +19,13 @@ import {
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Switch, Route, Redirect, useHistory } from "react-router-dom/";
-import { getItems, addItem, deleteItem } from "../../utils/Api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/Api";
 import { signIn, register, getContent, editProfile } from "../../utils/auth";
 
 function App() {
@@ -183,6 +189,30 @@ function App() {
       });
   };
 
+  const handleLikeClick = ({ id, isLiked, user }) => {
+    const token = localStorage.getItem("jwt");
+    // Check if this card is now liked
+    isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+        // the first argument is the card's id
+        addCardLike(id, user, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+        // the first argument is the card's id
+        removeCardLike(id, user, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((c) => (c._id === id ? updatedCard : c))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <CurrentUserContext.Provider value={currentUser}>
@@ -202,6 +232,8 @@ function App() {
                 weatherTemp={temp}
                 onSelectCard={handleSelectedCard}
                 clothingItems={clothingItems}
+                onCardLike={handleLikeClick}
+                isLoggedIn={loggedIn}
               />
             </Route>
             <ProtectedRoute path="/profile" loggedIn={loggedIn}>
@@ -212,6 +244,8 @@ function App() {
                 onLogOut={handleLogOut}
                 handleEditProfileModal={handleEditProfileModal}
                 handleEditProfile={handleEditProfile}
+                onCardLike={handleLikeClick}
+                isLoggedIn={loggedIn}
               />
             </ProtectedRoute>
           </Switch>

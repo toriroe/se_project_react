@@ -2,17 +2,7 @@ import "./EditProfileModal.css";
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const EditProfileModal = ({ onClose, handleSignUp }) => {
-  const [email, setEmail] = useState("");
-  const handleEmailChange = (evt) => {
-    setEmail(evt.target.value);
-  };
-
-  const [password, setPassword] = useState("");
-  const handlePasswordChange = (evt) => {
-    setPassword(evt.target.value);
-  };
-
+const EditProfileModal = ({ onClose, handleEditProfile }) => {
   const [name, setName] = useState("");
   const handleNameChange = (evt) => {
     setName(evt.target.value);
@@ -25,41 +15,19 @@ const EditProfileModal = ({ onClose, handleSignUp }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleSignUp({ name, avatar, email, password });
+    handleEditProfile({ name, avatar });
   };
 
   return (
-    <EditProfileModal
-      title="Sign Up"
+    <ModalWithForm
+      title="Change profile data"
       onClose={onClose}
-      buttonText="Next"
+      buttonText="Save Changes"
       onSubmit={handleSubmit}
     >
       <div className="modal__form-content">
         <label>
-          <p className="modal__input-title">Email*</p>
-          <input
-            className="modal__form-input"
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </label>
-        <label>
-          <p className="modal__input-title">Password*</p>
-          <input
-            className="modal__form-input"
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </label>
-        <label>
-          <p className="modal__input-title">Name</p>
+          <p className="modal__input-title">Name*</p>
           <input
             className="modal__form-input"
             type="text"
@@ -72,7 +40,7 @@ const EditProfileModal = ({ onClose, handleSignUp }) => {
           />
         </label>
         <label>
-          <p className="modal__input-title">Avatar URL</p>
+          <p className="modal__input-title">Avatar*</p>
           <input
             className="modal__form-input"
             type="url"
@@ -83,7 +51,7 @@ const EditProfileModal = ({ onClose, handleSignUp }) => {
           />
         </label>
       </div>
-    </EditProfileModal>
+    </ModalWithForm>
   );
 };
 

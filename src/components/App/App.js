@@ -8,6 +8,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { useEffect, useState } from "react";
 import {
@@ -200,6 +201,7 @@ function App() {
                 clothingItems={clothingItems}
                 onLogOut={handleLogOut}
                 handleEditProfileModal={handleEditProfileModal}
+                handleEditProfile={handleEditProfile}
               />
             </ProtectedRoute>
           </Switch>
@@ -234,9 +236,12 @@ function App() {
               handleSignUp={handleSignUp}
             />
           )}
-          {/* {activeModal === "editprofile" && (
-            <EditProfileModal onClose={handleCloseModal} />
-          )} */}
+          {activeModal === "editprofile" && (
+            <EditProfileModal
+              onClose={handleCloseModal}
+              handleEditProfile={handleEditProfile}
+            />
+          )}
         </CurrentTemperatureUnitContext.Provider>
       </CurrentUserContext.Provider>
     </div>

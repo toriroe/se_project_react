@@ -11,11 +11,13 @@ const Profile = ({
 }) => {
   return (
     <div className="profile">
-      <SideBar onLogOut={onLogOut} />
+      <SideBar
+        onLogOut={onLogOut}
+        handleEditProfileModal={handleEditProfileModal}
+      />
       <ClothesSection
         handleCreateModal={handleCreateModal}
         handleSelectedCard={handleSelectedCard}
-        handleEditProfileModal={handleEditProfileModal}
         clothingItems={clothingItems}
       />
     </div>

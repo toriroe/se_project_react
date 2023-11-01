@@ -50,7 +50,7 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
                 />
               ) : (
                 <p className="header__avatar-letter">
-                  {currentUser.name[0].toUpperCase()}
+                  {currentUser.name[0]?.toUpperCase()}
                 </p>
               )}
             </div>

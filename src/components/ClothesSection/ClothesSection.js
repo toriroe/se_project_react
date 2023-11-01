@@ -1,11 +1,18 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
 const ClothesSection = ({
   handleCreateModal,
   handleSelectedCard,
   clothingItems,
 }) => {
+  const currentUser = useContext(CurrentUserContext);
+  const filteredItems = clothingItems.filter((item) => {
+    return item.owner === currentUser._id;
+  });
+
   return (
     <div className="clothes__section">
       <div className="clothes__section-wrapper">
@@ -15,7 +22,7 @@ const ClothesSection = ({
         </button>
       </div>
       <div className="clothes__items">
-        {clothingItems.map((item) => {
+        {filteredItems.map((item) => {
           return (
             <ItemCard
               card={item}

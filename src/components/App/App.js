@@ -20,7 +20,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Switch, Route, Redirect, useHistory } from "react-router-dom/";
 import { getItems, addItem, deleteItem } from "../../utils/Api";
-import { signIn, register, getContent } from "../../utils/auth";
+import { signIn, register, getContent, editProfile } from "../../utils/auth";
 
 function App() {
   /* ------------------------------- Use States ------------------------------- */
@@ -107,8 +107,6 @@ function App() {
     setActiveModal("editprofile");
   };
 
-  const handleEditProfile = () => {};
-
   const handleToggleSwitchChange = () => {
     currentTemperatureUnit === "F"
       ? setCurrentTemperatureUnit("C")
@@ -171,6 +169,18 @@ function App() {
     localStorage.removeItem("jwt");
     setLoggedIn(false);
     history.push("/");
+  };
+
+  const handleEditProfile = (values) => {
+    editProfile(values)
+      .then((editedUser) => {
+        console.log(editedUser);
+        setCurrentUser(editedUser);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (

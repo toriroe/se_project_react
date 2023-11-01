@@ -1,21 +1,27 @@
 import "./EditProfileModal.css";
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
 const EditProfileModal = ({ onClose, handleEditProfile }) => {
-  const [name, setName] = useState("");
+  const currentUser = useContext(CurrentUserContext);
+  const _id = currentUser._id;
+  const token = localStorage.getItem("jwt");
+
+  const [name, setName] = useState(currentUser.name);
   const handleNameChange = (evt) => {
     setName(evt.target.value);
   };
 
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState(currentUser.avatar);
   const handleAvatarChange = (evt) => {
     setAvatar(evt.target.value);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleEditProfile({ name, avatar });
+    handleEditProfile({ name, avatar, _id, token });
   };
 
   return (

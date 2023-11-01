@@ -46,3 +46,17 @@ export const getContent = (token) => {
   }).then(checkResponse);
   return getContent;
 };
+
+/* ------------------------------ Edit Profile ------------------------------ */
+
+export const editProfile = ({ name, avatar, _id, token }) => {
+  const editProfile = fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar, _id }),
+  }).then(checkResponse);
+  return editProfile;
+};

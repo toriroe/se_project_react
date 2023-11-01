@@ -65,3 +65,10 @@
 .modal__button-delete:hover {
   cursor: pointer;
 }
+
+.modal__button-delete_hidden {
+  display: none;
+}
+
+.modal__button-delete_visible {
+}

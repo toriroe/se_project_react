@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ handleAddItem, onClose }) => {
+  const token = localStorage.getItem("jwt");
+
   const [name, setName] = useState("");
   const handleNameChange = (evt) => {
     setName(evt.target.value);
@@ -21,7 +23,7 @@ const AddItemModal = ({ handleAddItem, onClose }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleAddItem({ name, imageUrl, weather });
+    handleAddItem({ name, imageUrl, weather, token });
   };
 
   return (

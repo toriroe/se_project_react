@@ -114,9 +114,8 @@ function App() {
 
   const handleAddItem = (values) => {
     addItem(values)
-      .then((data) => {
-        console.log(data);
-        setClothingItems([data, ...clothingItems]);
+      .then((newItem) => {
+        setClothingItems([newItem.data, ...clothingItems]);
         handleCloseModal();
       })
       .catch((err) => {

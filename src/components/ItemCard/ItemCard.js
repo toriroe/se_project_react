@@ -34,6 +34,7 @@ const ItemCard = ({ card, onSelectCard, onCardLike, isLoggedIn }) => {
           src={cardLikeButtonSrc}
           className={cardLikeButtonClass}
           onClick={handleCardLike}
+          alt="card like button"
         />
       </div>
     </div>

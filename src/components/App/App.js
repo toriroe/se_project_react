@@ -147,7 +147,6 @@ function App() {
   const handleSignUp = ({ name, avatar, email, password }) => {
     register({ name, avatar, email, password })
       .then((user) => {
-        console.log(user);
         setLoggedIn(true);
         setCurrentUser(user);
         localStorage.setItem("jwt", user.token);

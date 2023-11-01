@@ -42,7 +42,7 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
             <Link className="header__name" to="/profile">
               {currentUser.name}
             </Link>
-            <div>
+            <Link to="/profile">
               {avatarExists ? (
                 <img
                   className="header__avatar"
@@ -54,7 +54,7 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
                   {currentUser.name[0].toUpperCase()}
                 </p>
               )}
-            </div>
+            </Link>
           </div>
         ) : (
           <div className="header__registration">

@@ -130,11 +130,11 @@ function App() {
       });
   };
 
-  const handleDeleteItem = (selectedCard) => {
-    deleteItem(selectedCard)
+  const handleDeleteItem = (selectedCard, token) => {
+    deleteItem(selectedCard, token)
       .then(() => {
         const newClothesList = clothingItems.filter((item) => {
-          return item.id !== selectedCard.id;
+          return item._id !== selectedCard._id;
         });
         setClothingItems(newClothesList);
         handleCloseModal();

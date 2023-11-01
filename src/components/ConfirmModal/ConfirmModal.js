@@ -1,6 +1,7 @@
 import "./ConfirmModal.css";
 
 const ConfirmModal = ({ selectedCard, onClose, handleDeleteItem }) => {
+  const token = localStorage.getItem("jwt");
   return (
     <div className="modal">
       <div className="modal__content-confirm">
@@ -19,7 +20,7 @@ const ConfirmModal = ({ selectedCard, onClose, handleDeleteItem }) => {
           className="modal__button-delete-confirm"
           type="button"
           onClick={() => {
-            handleDeleteItem(selectedCard);
+            handleDeleteItem(selectedCard, token);
           }}
         >
           Yes, delete item

@@ -1,56 +1,49 @@
 const baseUrl = "http://localhost:3001";
-
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  } else {
-    return Promise.reject(`Error: ${res.status}`);
-  }
-};
+import { checkResponse } from "./Api";
 
 /* ---------------------------- Sign In Request --------------------------- */
 
 export const signIn = ({ email, password }) => {
-  const signIn = fetch(`${baseUrl}/signin`, {
+  const signInReq = fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
   }).then(checkResponse);
-  return signIn;
+  return signInReq;
 };
 
 /* ---------------------------- Sign Up request --------------------------- */
 
 export const register = ({ name, avatar, email, password }) => {
-  const register = fetch(`${baseUrl}/signup`, {
+  const registerReq = fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
   }).then(checkResponse);
-  return register;
+  return registerReq;
 };
 
 /* ------------------------------- Check Token request ------------------------------ */
 
 export const getContent = (token) => {
-  const getContent = fetch(`${baseUrl}/users/me`, {
+  const getContentReq = fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
-  return getContent;
+  return getContentReq;
 };
 
 /* ------------------------------ Edit Profile request ------------------------------ */
 
 export const editProfile = ({ name, avatar, _id, token }) => {
-  const editProfile = fetch(`${baseUrl}/users/me`, {
+  const editProfileReq = fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -58,5 +51,5 @@ export const editProfile = ({ name, avatar, _id, token }) => {
     },
     body: JSON.stringify({ name, avatar, _id }),
   }).then(checkResponse);
-  return editProfile;
+  return editProfileReq;
 };

@@ -11,19 +11,19 @@ export const checkResponse = (res) => {
 /* ---------------------------- GET items request --------------------------- */
 
 export const getItems = () => {
-  const getItems = fetch(`${baseUrl}/items`, {
+  const getItemsReq = fetch(`${baseUrl}/items`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   }).then(checkResponse);
-  return getItems;
+  return getItemsReq;
 };
 
 /* --------------------------- POST new item request --------------------------- */
 
 export const addItem = ({ name, imageUrl, weather, token }) => {
-  const addItem = fetch(`${baseUrl}/items`, {
+  const addItemReq = fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,26 +31,26 @@ export const addItem = ({ name, imageUrl, weather, token }) => {
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
-  return addItem;
+  return addItemReq;
 };
 
 /* --------------------------- DELETE item request -------------------------- */
 
 export const deleteItem = (selectedCard, token) => {
-  const deleteItem = fetch(`${baseUrl}/items/${selectedCard._id}`, {
+  const deleteItemReq = fetch(`${baseUrl}/items/${selectedCard._id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
-  return deleteItem;
+  return deleteItemReq;
 };
 
 /* -------------------------------- PUT item like request ------------------------------- */
 
 export const addCardLike = (id, user, token) => {
-  const addCardLike = fetch(`${baseUrl}/items/${id}/likes`, {
+  const addCardLikeReq = fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -58,13 +58,13 @@ export const addCardLike = (id, user, token) => {
     },
     body: JSON.stringify({ user }),
   }).then(checkResponse);
-  return addCardLike;
+  return addCardLikeReq;
 };
 
 /* ------------------------------- DELETE item like request ------------------------------ */
 
 export const removeCardLike = (id, user, token) => {
-  const removeCardLike = fetch(`${baseUrl}/items/${id}/likes`, {
+  const removeCardLikeReq = fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -72,5 +72,5 @@ export const removeCardLike = (id, user, token) => {
     },
     body: JSON.stringify({ user }),
   }).then(checkResponse);
-  return removeCardLike;
+  return removeCardLikeReq;
 };

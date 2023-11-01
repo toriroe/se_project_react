@@ -3,9 +3,8 @@ import avatar from "../../images/avatar.png";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-const SideBar = ({ onEditProfile, onLogOut }) => {
+const SideBar = ({ handleEditProfileModal, onLogOut }) => {
   const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
 
   return (
     <div className="sidebar">
@@ -24,7 +23,7 @@ const SideBar = ({ onEditProfile, onLogOut }) => {
         <p className="sidebar__name">{currentUser.name}</p>
       </div>
       <div className="sidebar__buttons">
-        <button className="sidebar__button" onClick={onEditProfile}>
+        <button className="sidebar__button" onClick={handleEditProfileModal}>
           Change profile data
         </button>
         <button className="sidebar__button" onClick={onLogOut}>

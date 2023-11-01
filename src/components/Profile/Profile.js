@@ -6,7 +6,7 @@ const Profile = ({
   handleCreateModal,
   handleSelectedCard,
   clothingItems,
-  onEditProfile,
+  handleEditProfileModal,
   onLogOut,
 }) => {
   return (
@@ -15,6 +15,7 @@ const Profile = ({
       <ClothesSection
         handleCreateModal={handleCreateModal}
         handleSelectedCard={handleSelectedCard}
+        handleEditProfileModal={handleEditProfileModal}
         clothingItems={clothingItems}
       />
     </div>

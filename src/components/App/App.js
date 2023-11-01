@@ -102,7 +102,9 @@ function App() {
     setActiveModal("confirm");
   };
 
-  const handleEditProfileModal = () => {};
+  const handleEditProfileModal = () => {
+    setActiveModal("editprofile");
+  };
 
   const handleEditProfile = () => {};
 
@@ -156,7 +158,6 @@ function App() {
       .then((user) => {
         localStorage.setItem("jwt", user.token);
         setLoggedIn(true);
-        console.log(user);
         handleCloseModal();
       })
       .catch((err) => {
@@ -198,39 +199,46 @@ function App() {
                 handleSelectedCard={handleSelectedCard}
                 clothingItems={clothingItems}
                 onLogOut={handleLogOut}
+                handleEditProfileModal={handleEditProfileModal}
               />
             </ProtectedRoute>
           </Switch>
+          <Footer />
+
+          {activeModal === "create" && (
+            <AddItemModal
+              handleAddItem={handleAddItem}
+              onClose={handleCloseModal}
+            />
+          )}
+          {activeModal === "preview" && (
+            <ItemModal
+              selectedCard={selectedCard}
+              onClose={handleCloseModal}
+              handleDeleteClick={handleConfirmModal}
+            />
+          )}
+          {activeModal === "confirm" && (
+            <ConfirmModal
+              selectedCard={selectedCard}
+              onClose={handleCloseModal}
+              handleDeleteItem={handleDeleteItem}
+            />
+          )}
+          {activeModal === "login" && (
+            <LoginModal onClose={handleCloseModal} handleLogIn={handleLogIn} />
+          )}
+          {activeModal === "register" && (
+            <RegisterModal
+              onClose={handleCloseModal}
+              handleSignUp={handleSignUp}
+            />
+          )}
+          {/* {activeModal === "editprofile" && (
+            <EditProfileModal onClose={handleCloseModal} />
+          )} */}
         </CurrentTemperatureUnitContext.Provider>
       </CurrentUserContext.Provider>
-      <Footer />
-
-      {activeModal === "create" && (
-        <AddItemModal
-          handleAddItem={handleAddItem}
-          onClose={handleCloseModal}
-        />
-      )}
-      {activeModal === "preview" && (
-        <ItemModal
-          selectedCard={selectedCard}
-          onClose={handleCloseModal}
-          handleDeleteClick={handleConfirmModal}
-        />
-      )}
-      {activeModal === "confirm" && (
-        <ConfirmModal
-          selectedCard={selectedCard}
-          onClose={handleCloseModal}
-          handleDeleteItem={handleDeleteItem}
-        />
-      )}
-      {activeModal === "login" && (
-        <LoginModal onClose={handleCloseModal} handleLogIn={handleLogIn} />
-      )}
-      {activeModal === "register" && (
-        <RegisterModal onClose={handleCloseModal} handleSignUp={handleSignUp} />
-      )}
     </div>
   );
 }

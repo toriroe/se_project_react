@@ -180,7 +180,6 @@ function App() {
   const handleEditProfile = (values) => {
     editProfile(values)
       .then((editedUser) => {
-        console.log(editedUser);
         setCurrentUser(editedUser);
         handleCloseModal();
       })
@@ -189,16 +188,17 @@ function App() {
       });
   };
 
-  const handleLikeClick = ({ id, isLiked, user }) => {
+  const handleLikeClick = (id, isLiked, user) => {
+    console.log(id, isLiked, user);
     const token = localStorage.getItem("jwt");
     // Check if this card is now liked
-    isLiked
+    !isLiked
       ? // if so, send a request to add the user's id to the card's likes array
         // the first argument is the card's id
         addCardLike(id, user, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard : c))
+              cards.map((card) => (card._id === id ? updatedCard : card))
             );
           })
           .catch((err) => console.log(err))
@@ -207,7 +207,7 @@ function App() {
         removeCardLike(id, user, token)
           .then((updatedCard) => {
             setClothingItems((cards) =>
-              cards.map((c) => (c._id === id ? updatedCard : c))
+              cards.map((card) => (card._id === id ? updatedCard : card))
             );
           })
           .catch((err) => console.log(err));

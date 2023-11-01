@@ -1,15 +1,15 @@
 import "./SideBar.css";
-import avatar from "../../images/avatar.png";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
 const SideBar = ({ handleEditProfileModal, onLogOut }) => {
   const currentUser = useContext(CurrentUserContext);
+  const avatarExists = currentUser.avatar !== "" ? true : false;
 
   return (
     <div className="sidebar">
       <div className="sidebar__user">
-        {currentUser.avatar ? (
+        {avatarExists ? (
           <img
             className="header__avatar"
             src={currentUser.avatar}
@@ -17,7 +17,7 @@ const SideBar = ({ handleEditProfileModal, onLogOut }) => {
           />
         ) : (
           <p className="header__avatar-letter">
-            {currentUser.name.charAt(0).toUpperCase()}
+            {currentUser.name[0].toUpperCase()}
           </p>
         )}
         <p className="sidebar__name">{currentUser.name}</p>

@@ -1,6 +1,5 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
-import avatar from "../../images/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -13,6 +12,8 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
   });
 
   const currentUser = useContext(CurrentUserContext);
+
+  const avatarExists = currentUser.avatar !== "" ? true : false;
 
   return (
     <header className="header">
@@ -42,7 +43,7 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
               {currentUser.name}
             </Link>
             <div>
-              {currentUser.avatar ? (
+              {avatarExists ? (
                 <img
                   className="header__avatar"
                   src={currentUser.avatar}
@@ -50,7 +51,7 @@ const Header = ({ onCreateModal, location, loggedIn, onLogIn, onSignUp }) => {
                 />
               ) : (
                 <p className="header__avatar-letter">
-                  {currentUser.name[0]?.toUpperCase()}
+                  {currentUser.name[0].toUpperCase()}
                 </p>
               )}
             </div>

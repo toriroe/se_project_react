@@ -180,8 +180,9 @@ function App() {
 
   const handleEditProfile = (values) => {
     editProfile(values)
-      .then((editedUser) => {
-        setCurrentUser(editedUser);
+      .then((res) => {
+        console.log(res);
+        setCurrentUser(res.data);
         handleCloseModal();
       })
       .catch((err) => {

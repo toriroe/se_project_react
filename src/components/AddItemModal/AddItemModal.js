@@ -2,7 +2,7 @@ import "./AddItemModal.css";
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ handleAddItem, onClose }) => {
+const AddItemModal = ({ handleAddItem, onClose, isLoading }) => {
   const token = localStorage.getItem("jwt");
 
   const [name, setName] = useState("");
@@ -29,7 +29,7 @@ const AddItemModal = ({ handleAddItem, onClose }) => {
     <ModalWithForm
       title="New Garment"
       onClose={onClose}
-      buttonText="Add Garment"
+      buttonText={isLoading ? "Saving..." : "Add Garment"}
       onSubmit={handleSubmit}
     >
       <div className="modal__form-content">

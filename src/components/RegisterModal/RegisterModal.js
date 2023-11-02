@@ -2,7 +2,7 @@ import "./RegisterModal.css";
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ onClose, handleSignUp }) => {
+const RegisterModal = ({ onClose, handleSignUp, isLoading }) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (evt) => {
     setEmail(evt.target.value);
@@ -32,7 +32,7 @@ const RegisterModal = ({ onClose, handleSignUp }) => {
     <ModalWithForm
       title="Sign Up"
       onClose={onClose}
-      buttonText="Next"
+      buttonText={isLoading ? "Saving..." : "Next"}
       onSubmit={handleSubmit}
     >
       <div className="modal__form-content">

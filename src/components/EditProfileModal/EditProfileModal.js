@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-const EditProfileModal = ({ onClose, handleEditProfile }) => {
+const EditProfileModal = ({ onClose, handleEditProfile, isLoading }) => {
   const currentUser = useContext(CurrentUserContext);
   const _id = currentUser._id;
   const token = localStorage.getItem("jwt");
@@ -27,7 +27,7 @@ const EditProfileModal = ({ onClose, handleEditProfile }) => {
     <ModalWithForm
       title="Change profile data"
       onClose={onClose}
-      buttonText="Save Changes"
+      buttonText={isLoading ? "Saving..." : "Save Changes"}
       onSubmit={handleSubmit}
     >
       <div className="modal__form-content">

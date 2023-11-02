@@ -39,6 +39,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   /* ------------------------------- Use Effects ------------------------------ */
@@ -138,6 +139,7 @@ function App() {
   };
 
   const handleAddItem = (values) => {
+    setIsLoading(true);
     addItem(values)
       .then((newItem) => {
         setClothingItems([newItem.data, ...clothingItems]);
@@ -145,10 +147,12 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleDeleteItem = (selectedCard, token) => {
+    setIsLoading(true);
     deleteItem(selectedCard, token)
       .then(() => {
         const newClothesList = clothingItems.filter((item) => {
@@ -159,10 +163,12 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
+    setIsLoading(true);
     register({ name, avatar, email, password })
       .then((user) => {
         setLoggedIn(true);
@@ -172,10 +178,12 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleLogIn = ({ email, password }) => {
+    setIsLoading(true);
     signIn({ email, password })
       .then((res) => {
         console.log(res.user);
@@ -186,7 +194,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleLogOut = () => {
@@ -197,6 +206,7 @@ function App() {
   };
 
   const handleEditProfile = (values) => {
+    setIsLoading(true);
     editProfile(values)
       .then((res) => {
         console.log(res);
@@ -205,7 +215,8 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleLikeClick = (id, isLiked, user) => {
@@ -274,6 +285,7 @@ function App() {
           <AddItemModal
             handleAddItem={handleAddItem}
             onClose={handleCloseModal}
+            isLoading={isLoading}
           />
         )}
         {activeModal === "preview" && (
@@ -291,18 +303,24 @@ function App() {
           />
         )}
         {activeModal === "login" && (
-          <LoginModal onClose={handleCloseModal} handleLogIn={handleLogIn} />
+          <LoginModal
+            onClose={handleCloseModal}
+            handleLogIn={handleLogIn}
+            isLoading={isLoading}
+          />
         )}
         {activeModal === "register" && (
           <RegisterModal
             onClose={handleCloseModal}
             handleSignUp={handleSignUp}
+            isLoading={isLoading}
           />
         )}
         {activeModal === "editprofile" && (
           <EditProfileModal
             onClose={handleCloseModal}
             handleEditProfile={handleEditProfile}
+            isLoading={isLoading}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

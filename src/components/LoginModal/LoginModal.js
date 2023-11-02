@@ -2,7 +2,7 @@ import "./LoginModal.css";
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ onClose, handleLogIn }) => {
+const LoginModal = ({ onClose, handleLogIn, isLoading }) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (evt) => {
     setEmail(evt.target.value);
@@ -22,7 +22,7 @@ const LoginModal = ({ onClose, handleLogIn }) => {
     <ModalWithForm
       title="Log In"
       onClose={onClose}
-      buttonText="Log In"
+      buttonText={isLoading ? "Saving..." : "Log In"}
       onSubmit={handleSubmit}
     >
       <div className="modal__form-content">

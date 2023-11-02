@@ -86,7 +86,7 @@ const AddItemModal = ({ handleAddItem, onClose, isLoading }) => {
             <input
               className="modal__radio-button"
               type="radio"
-              id="Cold"
+              id="cold"
               value="cold"
               name="weather"
               onChange={handleWeatherChange}

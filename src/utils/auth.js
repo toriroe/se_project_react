@@ -2,7 +2,7 @@ import { checkResponse } from "./Api";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "api.wtwr.mnode.net"
+    ? "https://api.wtwr.mnode.net"
     : "http://localhost:3001";
 
 /* ---------------------------- Sign In Request --------------------------- */

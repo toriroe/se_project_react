@@ -43,13 +43,13 @@ export const getContent = (token) => {
 
 /* ------------------------------ Edit Profile request ------------------------------ */
 
-export const editProfile = ({ name, avatar, _id, token }) => {
+export const editProfile = ({ name, avatar, token }) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, avatar, _id }),
+    body: JSON.stringify({ name, avatar }),
   }).then(checkResponse);
 };

@@ -139,6 +139,7 @@ function App() {
   };
 
   const handleAddItem = (values) => {
+    console.log(values);
     setIsLoading(true);
     addItem(values)
       .then((newItem) => {

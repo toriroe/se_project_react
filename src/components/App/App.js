@@ -187,8 +187,8 @@ function App() {
     setIsLoading(true);
     signIn({ email, password })
       .then((res) => {
-        console.log(res.user);
-        setCurrentUser(res.user);
+        console.log(res);
+        setCurrentUser(res);
         localStorage.setItem("jwt", res.token);
         setLoggedIn(true);
         handleCloseModal();

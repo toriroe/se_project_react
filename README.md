@@ -1,17 +1,23 @@
-# WTWR (What to Wear?)
+# Tripleten's 'What to Wear?' Project
 
-## About the project
+This Create React App receives weather data by making a call to a third-party weather API and then recommends suitable clothing to the user based on that data. Authorized users can upload new clothing items, as well as like/unlike items. Liked clothing items are added to the user's profile page, where users can also update their profile name and avatar. The app makes API calls to back-end for handling creating, deleting, liking, and unliking clothing items, as well as registering/authorizing users. User and clothing data are stored in a database, which is connected via the back-end code (see below for link to the repo). The site is hosted on Google Cloud. 
 
-The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user.
+## Project Features
 
-This version of the project connects the WTWR front end to the back-end (the link to the repo can be found at the bottom of the page).
+- Temperature unit toggle switch using React context
+- Profile page route using React Router
+- Form submission using controlled components
+- User authentication/authorization 
+- API calls for handling creating, deleting, liking, and unliking items
 
-Additionally, this most recent iteration of the CRA project implements user authorization and authentication - users are able to create an account and log in. Users are able to upload, like, and delete their own clothing items, as well as view and like clothing items from other users that are stored in the database. Authorized users are able to like clothing items, as well as view their own profile page where they can see a list of their own clothing items and update their name or avatar image.
+## Plans for improvement 
 
 Future plans to improve the application include introducing responsive design and updating the Weather Card based on local weather conditions.
 
 ## Links
 
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
+- [Link to site](https://www.wtwr.mnode.net/)
 
 - [Back-End Repo](https://github.com/toriroe/se_project_express)
+
+- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)

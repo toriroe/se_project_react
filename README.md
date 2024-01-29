@@ -1,6 +1,6 @@
 # Tripleten's 'What to Wear?' Project
 
-This Create React App receives weather data by making a call to a third-party weather API and then recommends suitable clothing to the user based on that data. Authorized users can upload new clothing items, as well as like/unlike items. Liked clothing items are added to the user's profile page, where users can also update their profile name and avatar. The app makes API calls to back-end for handling creating, deleting, liking, and unliking clothing items, as well as registering/authorizing users. User and clothing data are stored in a database, which is connected via the back-end code (see below for link to the repo). The site is hosted on Google Cloud. 
+This Create React App receives weather data by making a call to a third-party weather API and then recommends suitable clothing to the user based on that data. Authorized users can upload new clothing items, as well as like/unlike items. Liked clothing items are added to the user's profile page, where users can also update their profile name and avatar. The app makes API calls to back-end for handling creating, deleting, liking, and unliking clothing items, as well as registering/authorizing users. User and clothing data are stored in a database, which is connected via the back-end code (see below for link to the repo). The site is deployed and hosted on Google Cloud. 
 
 ## Project Features
 

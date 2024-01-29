@@ -28,10 +28,10 @@ Future plans to improve the application include introducing responsive design an
 
 ## Links
 
-- [Link to site](https://www.wtwr.mnode.net/)
+[Link to site](https://www.wtwr.mnode.net/)
 
-- [Back-End Repo](https://github.com/toriroe/se_project_express)
+[Back-End Repo](https://github.com/toriroe/se_project_express)
 
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
+[Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 
 ## Demo
